@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+##### PHP 7.4 Alpine ###########################################
+
+    php-7.4.alpine:
+        build:
+            context: ./php/7.4-alpine
+
+##### Nginx Web Server ##########################################
+
+    nginx:
+        build:
+            context: ./nginx
+        ports:
+            - "8000:80"
