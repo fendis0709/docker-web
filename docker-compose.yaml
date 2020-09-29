@@ -4,14 +4,23 @@ services:
 
 ##### PHP 7.4 Alpine ###########################################
 
-    php-7.4.alpine:
+    php-7.4:
         build:
-            context: ./php/7.4-alpine
+            context: ./php/7.4
+        restart: unless-stopped
 
-##### Nginx Web Server ##########################################
+##### Nginx Web Server #########################################
 
     nginx:
         build:
             context: ./nginx
+        restart: unless-stopped
         ports:
-            - "8000:80"
+            - "8001:80"
+
+##### Postgre SQL ##############################################
+
+    postgres:
+        build : 
+            context: ./postgres
+        restart: unless-stopped
